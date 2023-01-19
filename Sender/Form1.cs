@@ -20,7 +20,8 @@ namespace Sender
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                FilePath = openFileDialog1.FileName;                
+                FilePath = openFileDialog1.FileName;
+                label_fileName.Text = openFileDialog1.SafeFileName;
             }
         }
 

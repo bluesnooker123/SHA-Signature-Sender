@@ -31,7 +31,7 @@
             this.textBox_message = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_fileName = new System.Windows.Forms.Label();
             this.button_open = new System.Windows.Forms.Button();
             this.button_generateSignature = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,15 +61,15 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "Pem Files (*.pem) | *.pem";
             // 
-            // label2
+            // label_fileName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(65, 114);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(216, 20);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Please choose private key file";
+            this.label_fileName.AutoSize = true;
+            this.label_fileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_fileName.Location = new System.Drawing.Point(65, 114);
+            this.label_fileName.Name = "label_fileName";
+            this.label_fileName.Size = new System.Drawing.Size(216, 20);
+            this.label_fileName.TabIndex = 2;
+            this.label_fileName.Text = "Please choose private key file";
             // 
             // button_open
             // 
@@ -122,7 +122,7 @@
             this.Controls.Add(this.textBox_signature);
             this.Controls.Add(this.button_generateSignature);
             this.Controls.Add(this.button_open);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_fileName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_message);
             this.Name = "Form1";
@@ -137,7 +137,7 @@
         private System.Windows.Forms.TextBox textBox_message;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_fileName;
         private System.Windows.Forms.Button button_open;
         private System.Windows.Forms.Button button_generateSignature;
         private System.Windows.Forms.Label label3;
