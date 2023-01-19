@@ -59,6 +59,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Pem Files (*.pem) | *.pem";
             // 
             // label2
             // 
@@ -79,6 +80,7 @@
             this.button_open.TabIndex = 3;
             this.button_open.Text = "Open";
             this.button_open.UseVisualStyleBackColor = true;
+            this.button_open.Click += new System.EventHandler(this.button_open_Click);
             // 
             // button_generateSignature
             // 
@@ -89,6 +91,7 @@
             this.button_generateSignature.TabIndex = 4;
             this.button_generateSignature.Text = "Generate Signature";
             this.button_generateSignature.UseVisualStyleBackColor = true;
+            this.button_generateSignature.Click += new System.EventHandler(this.button_generateSignature_Click);
             // 
             // label3
             // 
@@ -102,18 +105,19 @@
             // 
             // textBox_signature
             // 
-            this.textBox_signature.Enabled = false;
             this.textBox_signature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox_signature.Location = new System.Drawing.Point(158, 232);
+            this.textBox_signature.Multiline = true;
             this.textBox_signature.Name = "textBox_signature";
-            this.textBox_signature.Size = new System.Drawing.Size(260, 26);
+            this.textBox_signature.ReadOnly = true;
+            this.textBox_signature.Size = new System.Drawing.Size(260, 208);
             this.textBox_signature.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 311);
+            this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox_signature);
             this.Controls.Add(this.button_generateSignature);
