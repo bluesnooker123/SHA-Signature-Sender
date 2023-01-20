@@ -36,12 +36,14 @@
             this.button_generateSignature = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox_signature = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBox_JSON = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox_message
             // 
             this.textBox_message.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox_message.Location = new System.Drawing.Point(158, 45);
+            this.textBox_message.Location = new System.Drawing.Point(158, 25);
             this.textBox_message.Name = "textBox_message";
             this.textBox_message.Size = new System.Drawing.Size(260, 26);
             this.textBox_message.TabIndex = 0;
@@ -50,7 +52,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 48);
+            this.label1.Location = new System.Drawing.Point(65, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 20);
             this.label1.TabIndex = 1;
@@ -65,7 +67,7 @@
             // 
             this.label_fileName.AutoSize = true;
             this.label_fileName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fileName.Location = new System.Drawing.Point(65, 114);
+            this.label_fileName.Location = new System.Drawing.Point(65, 75);
             this.label_fileName.Name = "label_fileName";
             this.label_fileName.Size = new System.Drawing.Size(216, 20);
             this.label_fileName.TabIndex = 2;
@@ -74,7 +76,7 @@
             // button_open
             // 
             this.button_open.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_open.Location = new System.Drawing.Point(307, 107);
+            this.button_open.Location = new System.Drawing.Point(307, 68);
             this.button_open.Name = "button_open";
             this.button_open.Size = new System.Drawing.Size(111, 37);
             this.button_open.TabIndex = 3;
@@ -85,7 +87,7 @@
             // button_generateSignature
             // 
             this.button_generateSignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_generateSignature.Location = new System.Drawing.Point(143, 164);
+            this.button_generateSignature.Location = new System.Drawing.Point(143, 125);
             this.button_generateSignature.Name = "button_generateSignature";
             this.button_generateSignature.Size = new System.Drawing.Size(226, 37);
             this.button_generateSignature.TabIndex = 4;
@@ -113,11 +115,32 @@
             this.textBox_signature.Size = new System.Drawing.Size(260, 208);
             this.textBox_signature.TabIndex = 5;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(66, 186);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "JSON";
+            // 
+            // textBox_JSON
+            // 
+            this.textBox_JSON.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_JSON.Location = new System.Drawing.Point(159, 183);
+            this.textBox_JSON.Name = "textBox_JSON";
+            this.textBox_JSON.ReadOnly = true;
+            this.textBox_JSON.Size = new System.Drawing.Size(260, 26);
+            this.textBox_JSON.TabIndex = 7;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 461);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.textBox_JSON);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBox_signature);
             this.Controls.Add(this.button_generateSignature);
@@ -142,6 +165,8 @@
         private System.Windows.Forms.Button button_generateSignature;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox_signature;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox_JSON;
     }
 }
 

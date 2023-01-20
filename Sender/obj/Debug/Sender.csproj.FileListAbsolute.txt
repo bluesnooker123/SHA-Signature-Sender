@@ -19,3 +19,5 @@ F:\TechG_Quantum\RSA Signing\Work\SHA-Signature-Sender\Sender\obj\Debug\Sender.c
 F:\TechG_Quantum\RSA Signing\Work\SHA-Signature-Sender\Sender\obj\Debug\Sender.exe
 F:\TechG_Quantum\RSA Signing\Work\SHA-Signature-Sender\Sender\obj\Debug\Sender.pdb
 F:\TechG_Quantum\RSA Signing\Work\SHA-Signature-Sender\Sender\bin\Debug\CSharp-easy-RSA-PEM.dll
+F:\TechG_Quantum\RSA Signing\Work\SHA-Signature-Sender\Sender\bin\Debug\Newtonsoft.Json.dll
+F:\TechG_Quantum\RSA Signing\Work\SHA-Signature-Sender\Sender\bin\Debug\Newtonsoft.Json.xml

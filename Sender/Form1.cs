@@ -4,6 +4,8 @@ using System.IO;
 using System.Text;
 using System.Security.Cryptography;
 using System.Windows.Forms;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Sender
 {
@@ -40,10 +42,17 @@ namespace Sender
 
             try
             {
+
                 string loadedRSA = File.ReadAllText(FilePath);
                 RSACryptoServiceProvider privateRSAkey = Crypto.DecodeRsaPrivateKey(loadedRSA);
                 SHA1Managed sha1 = new SHA1Managed();
-                string importantMessage = textBox_message.Text;
+
+                dynamic obj = new JObject();
+                obj.message = textBox_message.Text;
+                string json = JsonConvert.SerializeObject(obj);
+                textBox_JSON.Text = json;
+
+                string importantMessage = json;
                 byte[] importantMessageBytes = Encoding.UTF8.GetBytes(importantMessage);
                 byte[] hashedMessage = sha1.ComputeHash(importantMessageBytes);
 
