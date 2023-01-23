@@ -47,9 +47,10 @@ namespace Sender
                 RSACryptoServiceProvider privateRSAkey = Crypto.DecodeRsaPrivateKey(loadedRSA);
                 SHA1Managed sha1 = new SHA1Managed();
 
-                dynamic obj = new JObject();
-                obj.message = textBox_message.Text;
-                string json = JsonConvert.SerializeObject(obj);
+                //dynamic obj = new JObject();
+                //obj.message = textBox_message.Text;
+                //string json = JsonConvert.SerializeObject(obj);
+                string json = JsonConvert.SerializeObject(textBox_message.Text);
                 textBox_JSON.Text = json;
 
                 string importantMessage = json;
