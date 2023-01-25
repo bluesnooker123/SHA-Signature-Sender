@@ -29,9 +29,9 @@ namespace Sender
 
         private void button_generateSignature_Click(object sender, EventArgs e)
         {
-            if (textBox_message.TextLength == 0)
+            if (textBox_inputJSON.TextLength == 0)
             {
-                MessageBox.Show("Please type message!");
+                MessageBox.Show("Please type JSON String!");
                 return;
             }
             if (FilePath == "")
@@ -47,10 +47,9 @@ namespace Sender
                 RSACryptoServiceProvider privateRSAkey = Crypto.DecodeRsaPrivateKey(loadedRSA);
                 SHA1Managed sha1 = new SHA1Managed();
 
-                //dynamic obj = new JObject();
-                //obj.message = textBox_message.Text;
-                //string json = JsonConvert.SerializeObject(obj);
-                string json = JsonConvert.SerializeObject(textBox_message.Text);
+                dynamic deserializedObject = JsonConvert.DeserializeObject(textBox_inputJSON.Text);
+                string json = JsonConvert.SerializeObject(deserializedObject);
+
                 textBox_JSON.Text = json;
 
                 string importantMessage = json;
