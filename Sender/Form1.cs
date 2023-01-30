@@ -6,6 +6,7 @@ using System.Security.Cryptography;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RestSharp;
 
 namespace Sender
 {
@@ -64,6 +65,40 @@ namespace Sender
             catch (Exception exp) {
                 MessageBox.Show(exp.ToString());
             }            
+
+        }
+
+        private void button_send_Click(object sender, EventArgs e)
+        {
+            if (textBox_JSON.TextLength == 0)
+            {
+                MessageBox.Show("Please generate JSON string!");
+                return;
+            }
+            if (textBox_signature.TextLength == 0)
+            {
+                MessageBox.Show("Please generate Signature!");
+                return;
+            }
+
+            try
+            {
+                string jsonToSend = textBox_JSON.Text;
+                string signature = textBox_signature.Text;
+
+                var serviceURL = "https://corporate-staging.paywho.com/api/";
+                var client = new RestClient(serviceURL);
+                var request = new RestRequest("workerappz_signature_test");
+                request.AddHeader("x-signature", signature);
+                request.AddParameter("application/json", jsonToSend, ParameterType.RequestBody);
+                var response = client.Post(request);
+                var content = response.Content; // Raw content as string
+                MessageBox.Show(content);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.ToString());
+            }
 
         }
     }

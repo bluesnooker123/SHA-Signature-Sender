@@ -38,6 +38,7 @@
             this.textBox_inputJSON = new System.Windows.Forms.TextBox();
             this.textBox_JSON = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button_send = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -69,7 +70,7 @@
             // button_generateSignature
             // 
             this.button_generateSignature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_generateSignature.Location = new System.Drawing.Point(609, 464);
+            this.button_generateSignature.Location = new System.Drawing.Point(536, 464);
             this.button_generateSignature.Name = "button_generateSignature";
             this.button_generateSignature.Size = new System.Drawing.Size(200, 37);
             this.button_generateSignature.TabIndex = 4;
@@ -135,11 +136,23 @@
             this.label1.TabIndex = 10;
             this.label1.Text = "JSON";
             // 
+            // button_send
+            // 
+            this.button_send.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_send.Location = new System.Drawing.Point(767, 464);
+            this.button_send.Name = "button_send";
+            this.button_send.Size = new System.Drawing.Size(124, 37);
+            this.button_send.TabIndex = 11;
+            this.button_send.Text = "Send";
+            this.button_send.UseVisualStyleBackColor = true;
+            this.button_send.Click += new System.EventHandler(this.button_send_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(916, 523);
+            this.Controls.Add(this.button_send);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox_JSON);
             this.Controls.Add(this.label2);
@@ -167,6 +180,7 @@
         private System.Windows.Forms.TextBox textBox_inputJSON;
         private System.Windows.Forms.TextBox textBox_JSON;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button_send;
     }
 }
 
