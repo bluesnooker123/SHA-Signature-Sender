@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+using System.Collections.Generic;
 
 namespace Sender
 {
@@ -77,23 +78,68 @@ namespace Sender
             }
             if (textBox_signature.TextLength == 0)
             {
-                MessageBox.Show("Please generate Signature!");
+                MessageBox.Show("Please generate signature!");
+                return;
+            }
+            if (textBox_endpoint.TextLength == 0)
+            {
+                MessageBox.Show("Please input endpoint!");
+                return;
+            }
+            if (textBox_bearerToken.TextLength == 0)
+            {
+                MessageBox.Show("Please input bearer token!");
                 return;
             }
 
             try
             {
+                textBox_response.Text = "";
                 string jsonToSend = textBox_JSON.Text;
                 string signature = textBox_signature.Text;
 
-                var serviceURL = "https://corporate-staging.paywho.com/api/";
+                string[] tempStrArray = textBox_endpoint.Text.Split('/');
+                string endpoint = tempStrArray[tempStrArray.Length - 1];
+                string serviceURL = "";
+                for (int i = 0; i < tempStrArray.Length - 1; i++)
+                {
+                    serviceURL += tempStrArray[i] + '/';
+                }
+
                 var client = new RestClient(serviceURL);
-                var request = new RestRequest("workerappz_signature_test");
+                var request = new RestRequest(endpoint, radioButton_GET.Checked ? Method.Get : Method.Post);
+
+                request.AddHeader("Authorization", string.Format("Bearer {0}", textBox_bearerToken.Text));
                 request.AddHeader("x-signature", signature);
-                request.AddParameter("application/json", jsonToSend, ParameterType.RequestBody);
-                var response = client.Post(request);
-                var content = response.Content; // Raw content as string
-                MessageBox.Show(content);
+
+                if ( radioButton_GET.Checked )  // GET
+                {
+                    var deserializedObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonToSend);
+                    foreach (var pair in deserializedObject)
+                    {
+                        request.AddParameter(pair.Key, pair.Value);
+                    }
+                }
+                else  // POST
+                {
+                    request.AddParameter("application/json", jsonToSend, ParameterType.RequestBody);
+                }
+
+
+                RestResponse response = client.Execute(request);
+
+                if (response.ResponseStatus == ResponseStatus.Error)
+                {
+                    if (response.ErrorMessage != null)
+                        MessageBox.Show(response.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else
+                        MessageBox.Show(response.Content, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    return;
+                }
+
+                string content = response.Content; // Raw content as string
+                textBox_response.Text = content;
             }
             catch (Exception exp)
             {
