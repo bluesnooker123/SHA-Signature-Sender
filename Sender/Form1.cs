@@ -31,11 +31,6 @@ namespace Sender
 
         private void button_generateSignature_Click(object sender, EventArgs e)
         {
-            if (textBox_inputJSON.TextLength == 0)
-            {
-                MessageBox.Show("Please type JSON String!");
-                return;
-            }
             if (FilePath == "")
             {
                 MessageBox.Show("Please choose private key file!");
@@ -49,7 +44,7 @@ namespace Sender
                 RSACryptoServiceProvider privateRSAkey = Crypto.DecodeRsaPrivateKey(loadedRSA);
                 SHA1Managed sha1 = new SHA1Managed();
 
-                dynamic deserializedObject = JsonConvert.DeserializeObject(textBox_inputJSON.Text);
+                dynamic deserializedObject = JsonConvert.DeserializeObject(textBox_inputJSON.Text.Length != 0 ? textBox_inputJSON.Text : "[]");
                 string json = JsonConvert.SerializeObject(deserializedObject);
 
                 textBox_JSON.Text = json;
@@ -114,10 +109,13 @@ namespace Sender
 
                 if ( radioButton_GET.Checked )  // GET
                 {
-                    var deserializedObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonToSend);
-                    foreach (var pair in deserializedObject)
+                    if ( textBox_JSON.Text != "[]" )
                     {
-                        request.AddParameter(pair.Key, pair.Value);
+                        var deserializedObject = JsonConvert.DeserializeObject<Dictionary<string, string>>(jsonToSend);
+                        foreach (var pair in deserializedObject)
+                        {
+                            request.AddParameter(pair.Key, pair.Value);
+                        }
                     }
                 }
                 else  // POST
